@@ -9,15 +9,17 @@ for filename in sys.argv[1:]:
         print "Converting {} to csv".format(filename)
         csv_fn = filename[:-4]+ ".csv"
         with open(csv_fn, 'wb') as csvfile:
-            in_db = dbf.Dbf(filename)
+            in_dbf = dbf.Dbf(filename)
             out_csv = csv.writer(csvfile)
             names = []
+
             for field in in_db.header.fields:
                 names.append(field.name)
             out_csv.writerow(names)
-            for rec in in_db:
+
+            for rec in in_dbf:
                 out_csv.writerow(rec.fieldData)
-            in_db.close()
-            print "Done..."
+            in_dbf.close()
+            print "Completed"
     else:
-      print "Filename does not end with .dbf"
+      print "invalid filetype"
