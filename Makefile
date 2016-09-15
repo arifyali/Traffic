@@ -4,7 +4,7 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
+BUCKET = usdstrafficanalysis2015
 
 #################################################################################
 # COMMANDS                                                                      #
